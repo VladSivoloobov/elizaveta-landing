@@ -1,0 +1,32 @@
+---
+import { tv } from '../utils/tv';
+
+interface Props {
+  href?: string;
+  type: 'primary' | 'secondary' | 'secondary-outline' | 'icon';
+  class?: string;
+}
+
+const buttonVariants = tv({
+  base: 'py-4 px-8 rounded-[50px] block w-max font-bold cursor-pointer transition-colors duration-300 text-center',
+  variants: {
+    type: {
+      primary:
+        'bg-primary-900 text-white hover:bg-white hover:text-primary-900 active:bg-white active:text-primary-900',
+      secondary:
+        'bg-white text-primary-900 hover:bg-primary-900 hover:text-white active:bg-primary-900 active:text-white',
+      'secondary-outline':
+        'bg-white text-primary-900 border-2 border-primary-900 hover:bg-primary-900 hover:text-white active:bg-primary-900 active:text-white',
+      icon: 'p-4 rounded-full bg-primary-900 text-white hover:bg-white hover:[&_path]:stroke-primary-900 active:bg-white active:[*_path]:stroke-primary-900',
+    } satisfies Record<Props['type'], string>,
+  },
+});
+
+const { href, type, class: className } = Astro.props;
+
+const Button = href ? 'a' : 'button';
+---
+
+<Button href={href} class={buttonVariants({ type, class: className })}>
+  <slot />
+</Button>

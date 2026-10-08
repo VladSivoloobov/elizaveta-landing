@@ -1,0 +1,15 @@
+---
+import { cn } from 'cn';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<ul
+  class={cn('flex gap-8 md:justify-center xs:grid xs:grid-cols-2', className)}
+>
+  <slot />
+</ul>

@@ -1,0 +1,82 @@
+---
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import RatingItem from '../widgets/rating-slider/RatingItem.astro';
+import RatingSlider from '../widgets/rating-slider/RatingSlider.astro';
+import Arrow from '../assets/icons/arrow.svg';
+---
+
+<Section id='rating' spacing='padding' class='bg-secondary-700'>
+  <Container>
+    <div class='flex justify-between mb-2 items-center'>
+      <h2 class='xs:text-center'>ОТЗЫВЫ</h2>
+      <div class='flex gap-2 items-center'>
+        <Button class='rating-slider-button-left' type='icon'>
+          <Arrow class='h-5 w-5 [&_path]:stroke-white' />
+        </Button>
+        <Button class='rating-slider-button-right' type='icon'>
+          <Arrow class='h-5 w-5 [&_path]:stroke-white rotate-180' />
+        </Button>
+      </div>
+    </div>
+    <p class='text-neutral-600 mb-14'>Что говорят мои ученики и их родители</p>
+    <RatingSlider>
+      <RatingItem name='Оксана' specialization='Русский язык'>
+        Хочу выразить огромную благодарность Елизавете за занятия по русскому
+        языку с моим сыном! С самого начала занятий я заметила значительные
+        улучшения в понимании предмета.
+        <br />
+        <br />
+        Особенно хочу отметить индивидуальный подход преподавателя: он смог найти
+        слабые места и грамотно выстроить план занятий, чтобы их устранить. Занятия
+        проходили в комфортной и дружелюбной атмосфере, что помогало сыну не только
+        усваивать материал, но и не испытывать стресса.
+        <br />
+        <br />
+        Благодаря занятиям сын смог качественно подготовится с ОГЭ по русскому. Очень
+        рекомендую этого специалиста всем, кто хочет получить качественные знания!
+      </RatingItem>
+      <RatingItem name='Юлия' specialization='Подготовка к экзаменам'>
+        Елизавета отличный репетитор! Всем советую.
+        <br />
+        <br />
+        У моей дочки была по русскому языку отметка 3. Перед ОГЭ решили, что нужно
+        подтянуть предмет и я обратилась в сентябре к Елизавете. Занятия проходили
+        в непринуждённой форме.
+        <br />
+        <br />
+        Доступно преподносился материал. В итоге с первых занятий отметка по русскому
+        языку в школе стала расти и итоговая отметка за год 4. А ОГЭ по русскому дочка
+        написала на 5 (29 балов). Это стало приятной неожиданностью.
+        <br />
+        <br />
+        От души благодарна! 🙂
+      </RatingItem>
+      <RatingItem name='Анастасия' specialization='Русский язык'>
+        Ну самое главное, что Елизавета помогла нам с нашим запросом! Очень
+        грамотно, оперативно 👍 Елизавета приятный, воспитанный и пунктуальный
+        специалист! Спасибо большое за прекрасные сочинения, сами бы не
+        справились 🙏
+      </RatingItem>
+      <RatingItem name='Соня' specialization='ЕГЭ по литературе'>
+        Чудесный репетитор! Писала ЕГЭ с уверенностью!!❤️
+      </RatingItem>
+      <RatingItem name='Кристина' specialization='Русский язык'>
+        👍🏻
+      </RatingItem>
+      <RatingItem name='Ангелина' specialization='ЕГЭ по литературе'>
+        Все замечательно
+      </RatingItem>
+      <RatingItem name='Екатерина' specialization='Литература'>
+        Отличная проверка к/р по литературе Быстро, оперативно Спасибо
+      </RatingItem>
+      <RatingItem name='Анастасия' specialization='Литература'>
+        Отличный специалист! Очень все понравилось, с душой подходит к задаче!
+      </RatingItem>
+      <RatingItem name='Дмитрий' specialization='ЕГЭ по русскому языку'>
+        Всё отлично. Занятие понравилось
+      </RatingItem>
+    </RatingSlider>
+  </Container>
+</Section>

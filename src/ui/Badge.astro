@@ -1,0 +1,24 @@
+---
+import { tv } from '../utils/tv';
+
+interface Props {
+  text: string;
+  variant: 'secondary' | 'primary';
+}
+
+const badgeVariants = tv({
+  base: 'px-5 py-2 rounded-[50px] flex items-center justify-center font-semibold text-body-md',
+  variants: {
+    background: {
+      primary: 'text-white bg-primary-900',
+      secondary: 'text-neutral-900 bg-secondary-800',
+    } satisfies Record<Props['variant'], string>,
+  },
+});
+
+const { text, variant } = Astro.props;
+---
+
+<div class={badgeVariants({ background: variant })}>
+  {text}
+</div>

@@ -1,0 +1,63 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import PricingItem from '../widgets/pricing-list/PricingItem.astro';
+import PricingList from '../widgets/pricing-list/PricingList.astro';
+---
+
+<Section id='pricing' spacing='padding'>
+  <Container>
+    <h2 class='text-center mb-3 xs:text-center'>СТОИМОСТЬ ЗАНЯТИЙ</h2>
+    <p class='text-center text-neutral-600 mb-14 xs:mb-10'>
+      Длительность каждого занятия — 60 минут.
+      <br />
+      Возможны индивидуальные уроки и занятия в парах с другом (со скидкой!).
+    </p>
+    <PricingList>
+      <PricingItem
+        title='ЕГЭ/ОГЭ подготовка'
+        subtitle='Подготовлю к экзаменам'
+        buttonText='Записаться'
+        benefits={[
+          '60 минут полного фокуса на ваших целях',
+          'Индивидуальные домашние задания с подробной проверкой',
+          'Постоянная связь и ответы на вопросы в мессенджере (TG/VK)',
+          'Регулярные пробники и отслеживание динамики',
+        ]}
+      >
+        2 000 ₽
+      </PricingItem>
+      <PricingItem
+        class='col-span-2 row-start-1'
+        title='Лёгкий старт'
+        subtitle='Познакомимся и оценим уровень'
+        type='primary'
+        buttonText='Записаться на пробный урок'
+        benefits={[
+          'Знакомство с преподавателем',
+          'Диагностика сильных и слабых сторон',
+          'Разбор структуры экзамена',
+          'Составление индивидуальной программы обучения',
+        ]}
+      >
+        <span
+          class='block text-body-3xl line-through text-white/55 font-medium font-[inherit]'
+          >2 000 ₽</span
+        >
+        1 000 ₽
+      </PricingItem>
+      <PricingItem
+        title='Олимпиадная подготовка'
+        subtitle='Максимальный прогресс'
+        buttonText='Записаться'
+        benefits={[
+          'Углубленный уровень сложности',
+          'Разбор реальных заданий олимпиад прошлых лет',
+          'Авторские материалы по теории литературы и языкознанию',
+        ]}
+      >
+        2 500 ₽
+      </PricingItem>
+    </PricingList>
+  </Container>
+</Section>

@@ -1,0 +1,52 @@
+---
+import { tv } from '../../utils/tv';
+
+interface Props {
+  type?: 'primary' | 'secondary';
+  title: string;
+  text: string;
+  class?: string;
+}
+
+const specializationItemVariants = tv({
+  slots: {
+    item: 'py-8 px-7 rounded-3xl flex-1 shadow-xl/5 va va-pop antialiased transform-gpu backface-hidden',
+    icon: 'h-14 w-14 bg-secondary-800 flex items-center justify-center rounded-full mb-5',
+    title: 'mb-5 font-bold text-neutral-900',
+    text: 'font-regular text-neutral-600',
+  },
+  variants: {
+    type: {
+      primary: {
+        item: 'bg-primary-900',
+        icon: 'bg-white/25',
+        title: 'text-white',
+        text: 'text-white/85',
+      },
+      secondary: {
+        item: 'bg-white',
+      },
+    },
+  },
+  defaultVariants: {
+    type: 'secondary',
+  },
+});
+
+const { type, title, text, class: className } = Astro.props;
+
+const {
+  item,
+  icon,
+  text: textTv,
+  title: titleTv,
+} = specializationItemVariants({ type });
+---
+
+<li class={item({ class: className })}>
+  <div class={icon()}>
+    <slot name='icon' />
+  </div>
+  <h3 class={titleTv()} set:html={title} />
+  <p class={textTv()} set:html={text} />
+</li>

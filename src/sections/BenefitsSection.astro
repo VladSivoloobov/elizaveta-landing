@@ -1,0 +1,41 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import WhyChooseItem from '../widgets/why-choose-list/WhyChooseItem.astro';
+import WhyChooseList from '../widgets/why-choose-list/WhyChooseList.astro';
+import HeartIcon from '../assets/icons/heart.svg';
+---
+
+<Section id='benefits' spacing='padding'>
+  <Container>
+    <div class='mb-15 flex items-end gap-4 xs:mb-5'>
+      <h2 class='xs:text-center'>
+        ПОЧЕМУ<br />
+        <span class='text-primary-900'>ВЫБИРАЮТ МЕНЯ</span>
+      </h2>
+      <HeartIcon class='xs:hidden animate-pulse w-9 h-9 mb-2' />
+    </div>
+    <WhyChooseList>
+      <WhyChooseItem
+        class='va-start-0'
+        title='Поддержка и уверенность'
+        text='Не только учим правила, но и снимаем школьную тревожность. Ребенок учится верить в свои силы и не бояться ошибок.'
+      />
+      <WhyChooseItem
+        class='va-start-25'
+        title='Работа со «сложными» случаями'
+        text='Практика разговора с самого начала — прогресс виден сразу и мотивирует двигаться дальше.'
+      />
+      <WhyChooseItem
+        class='va-start-50'
+        title='Экспресс-подготовка'
+        text='Если до экзамена осталось мало времени (от 2 недель до полугода) — составим четкий план-интенсив для максимального результата.'
+      />
+      <WhyChooseItem
+        class='va-start-75'
+        title='Удобный онлайн-формат'
+        text='Занятия проходят в Яндекс Телемосте. Все материалы, домашки и поддержка преподавателя всегда под рукой в Telegram или VK.'
+      />
+    </WhyChooseList>
+  </Container>
+</Section>

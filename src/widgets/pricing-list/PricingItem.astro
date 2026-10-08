@@ -1,0 +1,92 @@
+---
+import { tv } from '../../utils/tv';
+import CheckIcon from '../../assets/icons/check.svg';
+import Button from '../../ui/Button.astro';
+
+interface Props {
+  type?: 'primary' | 'secondary';
+  title: string;
+  subtitle: string;
+  benefits: string[];
+  buttonText: string;
+  class?: string;
+}
+
+const pricingItemVariants = tv({
+  slots: {
+    title: 'mb-2',
+    subtitle: 'text-neutral-400 mb-6',
+    price:
+      'text-primary-900 text-md font-(family-name:--font-playfair-display) font-bold',
+    listItem:
+      'py-10 px-8 rounded-2xl bg-neutral-200 border border-secondary-600 flex-1 relative va va-pop transform-gpu antialiased backface-hidden',
+    perTime: 'text-neutral-400 font-medium',
+    benefitItem: 'flex gap-[10px] items-center [&_span]:text-neutral-500',
+    checkIcon: 'w-4 h-4',
+  },
+  variants: {
+    type: {
+      primary: {
+        title: 'text-white',
+        subtitle: 'text-white',
+        price: 'text-white',
+        listItem: 'bg-primary-900',
+        benefitItem: '[&_span]:text-white',
+        perTime: 'text-white/75',
+        checkIcon: '*:stroke-white',
+      },
+      secondary: {},
+    },
+  },
+  defaultVariants: {
+    type: 'secondary',
+  },
+});
+
+const { type, title, subtitle, benefits, class: className } = Astro.props;
+
+const {
+  title: titleTv,
+  subtitle: subtitleTv,
+  price: priceTv,
+  listItem: listItemTv,
+  perTime: perTimeTv,
+  benefitItem: benefitItemTv,
+  checkIcon: checkIconTv,
+} = pricingItemVariants({ type });
+---
+
+<li class={listItemTv({ class: className })}>
+  {
+    type === 'primary' && (
+      <div class='absolute bg-secondary-800 rounded-3xl py-1 px-1.5 right-4 text-body-xs font-bold top-4'>
+        Скидка 50%
+      </div>
+    )
+  }
+  <h3 class={titleTv()}>{title}</h3>
+  <p class={subtitleTv()}>{subtitle}</p>
+  <div class='mb-6'>
+    <span class={priceTv()}>
+      <slot />
+    </span>
+    <span class={perTimeTv()}>/ 60 мин</span>
+  </div>
+  <ul class='flex flex-col gap-3 mb-6'>
+    {
+      benefits.map((benefit) => (
+        <li class={benefitItemTv()}>
+          <CheckIcon class={checkIconTv()} />
+          <span class='flex-1'>{benefit}</span>
+        </li>
+      ))
+    }
+  </ul>
+  <Button
+    class='w-full text-center'
+    href='https://t.me/choosethelight'
+    type={type === 'primary' ? 'secondary' : 'secondary-outline'}
+  >
+    Записаться
+  </Button>
+</li>

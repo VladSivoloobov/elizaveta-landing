@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  class?: string;
+}
+
+const { title, text, class: className } = Astro.props;
+---
+
+<li
+  class:list={[
+    'pr-8 lg:pr-3 relative',
+    'after:block after:absolute after:content-[""] after:bg-secondary-600',
+    'after:right-0 after:w-px after:h-10 after:top-0 after:bottom-0 after:m-auto',
+    'last:after:hidden md:after:hidden md:flex-1',
+    className,
+  ]}
+>
+  <h3 class='text-primary-900 mb-1 text-body-3xl md:text-center'>{title}</h3>
+  <p
+    class='lg:text-body-sm text-nowrap md:text-wrap md:text-center'
+    set:html={text}
+  />
+</li>

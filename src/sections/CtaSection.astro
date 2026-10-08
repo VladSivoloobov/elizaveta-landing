@@ -1,0 +1,22 @@
+---
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+---
+
+<Section id='cta' spacing='padding' class='bg-primary-900'>
+  <Container>
+    <h2 class='xs:text-center text-white font-normal max-w-175 mb-6 xs:mb-3'>
+      Готовы сдать экзамены без стресса <br />и на максимум?
+    </h2>
+    <p class='max-w-175 mb-6 text-white font-medium xs:text-center'>
+      Запишитесь на пробное занятие со скидкой 50%, определите свой текущий балл
+      и получите персональную стратегию подготовки.
+    </p>
+    <Button
+      href='https://t.me/choosethelight'
+      type='secondary'
+      class='xs:w-full'>Записаться сейчас</Button
+    >
+  </Container>
+</Section>

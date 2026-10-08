@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+@plugin '@oglofus/tailwind-viewport-animations';
+@plugin "tailwindcss-intersect";
+
+@theme {
+  --animate-slide: slide ease 0.3s;
+
+  --breakpoint-*: initial;
+  --color-primary-900: #ff4d8d;
+  --color-primary-800: #fff0f6;
+  --color-primary-foreground: white;
+
+  --color-secondary-900: #2e7d32;
+  --color-secondary-800: #e8f5e9;
+  --color-secondary-700: #f8fcf7;
+  --color-secondary-600: #d7e7d8;
+
+  --color-secondary-foreground: #1a1a1a;
+
+  --color-neutral-900: #1a1a1a;
+  --color-neutral-800: #333333;
+  --color-neutral-700: #29292e;
+  --color-neutral-600: #777777;
+  --color-neutral-500: #555555;
+  --color-neutral-400: #999999;
+  --color-neutral-300: #444444;
+  --color-neutral-200: #fafafa;
+
+  --text-2xl: 58px;
+  --text-2xl--line-height: 108%;
+  --text-2xl--letter-spacing: 2%;
+
+  --text-xl: 48px;
+  --text-xl--line-height: 108%;
+
+  --text-md: 40px;
+  --text-md--line-height: 90%;
+
+  --text-lg: 24px;
+  --text-lg--line-height: 108%;
+
+  --text-logo: 20px;
+
+  --text-body-3xl: 28px;
+  --text-body-2xl: 20px;
+  --text-body-xl: 18px;
+  --text-body-lg: 16px;
+  --text-body-md: 15px;
+  --text-body-sm: 14px;
+  --text-body-xs: 13px;
+
+  --spacing-section: 108px;
+  --spacing-container: 80px;
+  --spacing-container-mobile: 16px;
+  --spacing-section-mobile: 60px;
+
+  @keyframes slide {
+    from {
+      transform: translateX(-100vw);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+@custom-variant xl (@media (max-width: 1440px));
+@custom-variant lg (@media (max-width: 1225px));
+@custom-variant md (@media (max-width: 992px));
+@custom-variant sm (@media (max-width: 768px));
+@custom-variant xs (@media (max-width: 480px));
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  section {
+    @apply scroll-mt-20 md:scroll-mt-10;
+  }
+
+  * {
+    @apply font-(family-name:--font-inter) text-neutral-900;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-(family-name:--font-playfair-display) font-bold;
+  }
+
+  :is(h1, h2, h3) * {
+    @apply font-[inherit];
+  }
+
+  h1 {
+    @apply text-2xl lg:text-xl xs:text-md;
+  }
+
+  h2 {
+    @apply text-xl font-black md:text-md xs:font-bold;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+
+  p,
+  a {
+    @apply text-body-lg text-neutral-500;
+  }
+}

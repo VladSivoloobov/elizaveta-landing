@@ -1,0 +1,64 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import aboutPhoto from '../assets/photos/about-photo.png';
+import Image from 'astro/components/Image.astro';
+import Heart from '../assets/icons/heart.svg';
+import AboutList from '../widgets/about-list/AboutList.astro';
+import AboutItem from '../widgets/about-list/AboutItem.astro';
+import AwardIcon from '../assets/icons/award.svg';
+import CheckCircleIcon from '../assets/icons/check-circle.svg';
+import GlobeIcon from '../assets/icons/globe.svg';
+---
+
+<Section id='about' class='bg-secondary-700' spacing='padding'>
+  <Container
+    class='flex gap-20 items-center md:gap-6 sm:flex-col lg:items-start'
+  >
+    <Image
+      class:list={[
+        'flex-1 min-w-0 min-h-0 max-w-130 block lg:sticky lg:top-30',
+        'va va-slide-left va-distance-80',
+        'sm:static sm:block sm:max-w-full sm:w-full',
+      ]}
+      src={aboutPhoto}
+      alt='Елизавета Ювати'
+    />
+    <div class='flex-1'>
+      <div class='flex items-center gap-4 mb-7 xs:mb-4'>
+        <h2 class='xs:text-center xs:w-full'>ОБО МНЕ</h2>
+        <Heart class='xs:hidden animate-pulse w-8 h-8' />
+      </div>
+      <p class='text-body-xl leading-normal mb-7 xs:text-center'>
+        Привет! Меня зовут Елизавета. Я преподаватель русского языка и
+        литературы с профильным высшим педагогическим образованием.
+        <br />
+        <br />
+        Когда-то я сама готовилась к экзаменам с нуля, поэтому точно знаю, через какой
+        стресс проходят ребята.
+        <br />
+        <br />
+        Мой подход — это не просто «натаскивание» на тесты, а искренняя вовлеченность.
+        <br />
+        <br />
+        Я интересуюсь жизнью учеников, поддерживаю их и верю в каждого, даже когда
+        опускаются руки. За счет комфортной атмосферы уходит страх ошибки, просыпается
+        интерес к предмету, а за ним неизбежно приходят высокие баллы!
+      </p>
+      <AboutList>
+        <AboutItem>
+          <AwardIcon slot='icon' />
+          Высшее профильное <br /> педагогическое образование
+        </AboutItem>
+        <AboutItem>
+          <CheckCircleIcon slot='icon' />
+          Практикующий репетитор с 2021 года.
+        </AboutItem>
+        <AboutItem>
+          <GlobeIcon slot='icon' />
+          Берусь за сложные случаи <br /> и экспресс подготовку от 2 недель до полугода.
+        </AboutItem>
+      </AboutList>
+    </div>
+  </Container></Section
+>

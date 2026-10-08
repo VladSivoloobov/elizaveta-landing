@@ -1,0 +1,51 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import SpecializationItem from '../widgets/specialization-list/SpecializationItem.astro';
+import SpecializationList from '../widgets/specialization-list/SpecializationList.astro';
+import MessageCircleIcon from '../assets/icons/message-circle.svg';
+import BookOpenIcon from '../assets/icons/book-open.svg';
+import BriefcaseIcon from '../assets/icons/briefcase.svg';
+import UsersIcon from '../assets/icons/users.svg';
+import SunIcon from '../assets/icons/sun.svg';
+---
+
+<Section id='specialization' class='bg-secondary-700 md:pt-0' spacing='padding'>
+  <Container>
+    <div class='mb-14 flex justify-between items-center xs:flex-col-reverse'>
+      <h2 class='flex-1 xs:text-center'>МОИ <br />НАПРАВЛЕНИЯ</h2>
+      <SunIcon class='sun-icon animate-spin va-duration-5000 self-end' />
+    </div>
+    <SpecializationList>
+      <SpecializationItem
+        class='va-start-0'
+        title='Подготовка <br /> к ЕГЭ'
+        text='Системный разбор всех заданий теста, написание сочинений по критериям ФИПИ. <br /><br />Цель — 80+ баллов для поступления на бюджет.'
+      >
+        <MessageCircleIcon slot='icon' />
+      </SpecializationItem>
+      <SpecializationItem
+        class='va-start-25'
+        type='primary'
+        title='Подготовка к ОГЭ и ВПР'
+        text='Спокойная и надежная отработка экзаменационных алгоритмов, изложений и сочинений. <br /><br />Сдаем на уверенные «4» и «5».'
+      >
+        <BookOpenIcon slot='icon' />
+      </SpecializationItem>
+      <SpecializationItem
+        class='va-start-50'
+        title='Повышение успеваемости'
+        text='Ликвидация пробелов в школьной программе. Объясняю сложные правила простым языком в комфортном для ребенка темпе.'
+      >
+        <BriefcaseIcon slot='icon' />
+      </SpecializationItem>
+      <SpecializationItem
+        class='va-start-75'
+        title='Олимпиады по литературе и русскому'
+        text='Углубленный анализ текстов, нестандартные языковые задачи и развитие филологической эрудиции.'
+      >
+        <UsersIcon slot='icon' />
+      </SpecializationItem>
+    </SpecializationList>
+  </Container>
+</Section>

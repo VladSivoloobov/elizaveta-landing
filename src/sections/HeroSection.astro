@@ -1,0 +1,80 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import heroImage from '../assets/photos/hero-image.png';
+import { Image } from 'astro:assets';
+import Heart from '../assets/icons/heart.svg';
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+import BenefitsList from '../widgets/benefits-list/BenefitsList.astro';
+import BenefitsItem from '../widgets/benefits-list/BenefitsItem.astro';
+---
+
+<Section id='hero' spacing='none' class='bg-primary-800'>
+  <Container class='flex pr-0 gap-9 md:block'>
+    <div class='pt-container md:pt-container-mobile pb-9 flex-1'>
+      <div class='flex mb-7 gap-3 xs:mb-3'>
+        <Badge text='Частный репетитор' variant='primary' />
+        <Badge text='Онлайн' variant='secondary' />
+      </div>
+      <h1 class='mb-7 xs:mb-4'>
+        Сдайте ЕГЭ на 80+ <br class='md:hidden' />и полюбите <br
+          class='md:hidden'
+        />русский язык <span
+          class='text-primary-900 block md:inline-block mt-1.25 relative'
+          >с Елизаветой <Heart
+            class='animate-pulse absolute top-0 bottom-0 xs:static xs:hidden md:-right-12 right-0 m-auto'
+          /></span
+        >
+      </h1>
+      <p class='max-w-120 mb-7 md:max-w-full'>
+        Помогаю поступить на бюджет, закрыть пробелы и обрести уверенность в
+        своих силах. Бережно, системно и без зубрёжки — с нуля до максимума.
+      </p>
+      <div class='flex gap-4 items-center mb-7 xs:flex-col'>
+        <Button
+          class='md:flex-1 xs:w-full'
+          href='https://t.me/choosethelight'
+          type='primary'>Записаться на урок</Button
+        >
+        <Button
+          class='md:flex-1 xs:w-full'
+          href='#pricing'
+          type='secondary-outline'>Узнать цены</Button
+        >
+      </div>
+      <BenefitsList class='order-last'>
+        <BenefitsItem
+          title='80+'
+          text='средний балл <br class="md:hidden" /> учеников на ЕГЭ'
+        />
+        <BenefitsItem
+          title='4 и 5'
+          text='результаты сдачи <br class="md:hidden" />ОГЭ'
+        />
+        <BenefitsItem
+          class='col-span-2'
+          title='5+ лет'
+          text='успешный опыт <br class="md:hidden" />преподавания'
+        />
+      </BenefitsList>
+    </div>
+    <div class='flex-1 relative'>
+      <Image
+        class='min-w-0 w-full h-full object-cover'
+        src={heroImage}
+        alt='Елизавета Ювати'
+      />
+      <div
+        class='absolute py-4 px-5 bottom-15 xs:bottom-2 xs:left-2 left-10 bg-white rounded-2xl border border-secondary-600'
+      >
+        <div
+          class='font-(family-name:--font-playfair-display) text-primary-900 font-bold text-body-md'
+        >
+          Высшее образование
+        </div>
+        <div class='text-neutral-600 text-body-sm'>Педагогическое</div>
+      </div>
+    </div>
+  </Container>
+</Section>

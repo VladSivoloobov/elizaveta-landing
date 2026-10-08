@@ -1,0 +1,25 @@
+---
+import { tv } from '../utils/tv';
+
+interface Props {
+  spacing: 'margin' | 'padding' | 'none';
+  class?: string;
+  id?: string;
+}
+
+const sectionVariants = tv({
+  variants: {
+    spacing: {
+      margin: 'my-section md:my-section-mobile',
+      padding: 'py-section md:py-section-mobile',
+      none: 'py-0 my-0',
+    } satisfies Record<Props['spacing'], string>,
+  },
+});
+
+const { spacing, class: className, id } = Astro.props;
+---
+
+<section id={id} class={sectionVariants({ spacing, class: className })}>
+  <slot />
+</section>

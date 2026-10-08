@@ -1,0 +1,26 @@
+---
+import { cn } from 'cn';
+
+interface Props {
+  title: string;
+  text: string;
+  class?: string;
+}
+
+const { title, text, class: className } = Astro.props;
+---
+
+<li
+  class={cn(
+    'before:block before:text-primary-900 [counter-increment:why-choose]',
+    'before:content-["0"counter(why-choose)] before:font-(family-name:--font-playfair-display)',
+    'before:text-md before:font-black before:mb-4 py-7 px-6',
+    'bg-secondary-700 rounded-[20px] flex-1 even:bg-secondary-800',
+    'even:before:text-neutral-700',
+    'va va-pop antialiased transform-gpu backface-hidden',
+    className,
+  )}
+>
+  <h3 class='text-body-2xl text-neutral-900 font-bold mb-4'>{title}</h3>
+  <p class='text-body-lg/normal text-neutral-600 font-normal'>{text}</p>
+</li>
