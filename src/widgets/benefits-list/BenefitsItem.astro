@@ -17,7 +17,9 @@ const { title, text, class: className } = Astro.props;
     className,
   ]}
 >
-  <h3 class='text-primary-900 mb-1 text-body-3xl md:text-center'>{title}</h3>
+  <h2 class='text-primary-900 mb-1 text-body-3xl font-bold md:text-center'>
+    {title}
+  </h2>
   <p
     class='lg:text-body-sm text-nowrap md:text-wrap md:text-center'
     set:html={text}
