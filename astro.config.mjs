@@ -2,11 +2,14 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: 'https://elizavetayuvati.ru',
   fonts: [
     {
       provider: fontProviders.google(),
@@ -23,4 +26,5 @@ export default defineConfig({
       subsets: ['cyrillic', 'latin'],
     },
   ],
+  integrations: [sitemap()],
 });

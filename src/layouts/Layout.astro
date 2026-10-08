@@ -1,19 +1,35 @@
 ---
 import '../global.css';
 import { Font } from 'astro:assets';
+import { SEO } from 'astro-seo';
+
+const title = 'Елизавета Ювати';
+const description =
+  'Помогаю поступить на бюджет, закрыть пробелы и обрести уверенность в своих силах. Бережно, системно и без зубрёжки — с нуля до максимума.';
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='ru'>
   <head>
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <link rel='icon' href='/favicon.ico' />
+    <link rel='sitemap' href='/sitemap-index.xml' />
     <meta name='generator' content={Astro.generator} />
-    <title>Astro Basics</title>
     <Font cssVariable='--font-inter' preload />
     <Font cssVariable='--font-playfair-display' preload />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image: '/hero-image.png',
+        },
+      }}
+    />
   </head>
   <body>
     <slot />
