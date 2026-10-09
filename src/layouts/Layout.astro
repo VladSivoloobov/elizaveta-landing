@@ -2,6 +2,7 @@
 import '../global.css';
 import { Font } from 'astro:assets';
 import { SEO } from 'astro-seo';
+import PersonLd from '../schemas/PersonLd.astro';
 
 const title = 'Елизавета Ювати';
 const description =
@@ -37,6 +38,7 @@ const description =
     />
   </head>
   <body>
+    <PersonLd />
     <slot />
   </body>
 </html>

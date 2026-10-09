@@ -26,5 +26,8 @@
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "schema-dts": "^2.1.0"
   }
 }

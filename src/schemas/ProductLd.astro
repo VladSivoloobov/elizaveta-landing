@@ -1,0 +1,25 @@
+---
+import JsonLd from './JsonLd.astro';
+import { type Offer, type Product, type WithContext } from 'schema-dts';
+
+interface Props {
+  name: string;
+  description: string;
+  offers: Offer;
+  id: string;
+}
+
+const { name, description, offers, id } = Astro.props;
+---
+
+<JsonLd
+  schema={{
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    '@id': id,
+    name: name,
+    description,
+    offers,
+    image: new URL('/hero-image.png', Astro.url.href).toString(),
+  } as WithContext<Product>}
+/>

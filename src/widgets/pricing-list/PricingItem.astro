@@ -2,6 +2,7 @@
 import { tv } from '../../utils/tv';
 import CheckIcon from '../../assets/icons/check.svg';
 import Button from '../../ui/Button.astro';
+import ProductLd from '../../schemas/ProductLd.astro';
 
 interface Props {
   type?: 'primary' | 'secondary';
@@ -10,6 +11,8 @@ interface Props {
   benefits: string[];
   buttonText: string;
   class?: string;
+  id: string;
+  ldPrice: string;
 }
 
 const pricingItemVariants = tv({
@@ -43,7 +46,15 @@ const pricingItemVariants = tv({
   },
 });
 
-const { type, title, subtitle, benefits, class: className } = Astro.props;
+const {
+  type,
+  title,
+  subtitle,
+  benefits,
+  class: className,
+  id,
+  ldPrice,
+} = Astro.props;
 
 const {
   title: titleTv,
@@ -56,7 +67,7 @@ const {
 } = pricingItemVariants({ type });
 ---
 
-<li class={listItemTv({ class: className })}>
+<li id={id} class={listItemTv({ class: className })}>
   {
     type === 'primary' && (
       <div class='absolute bg-secondary-800 rounded-3xl py-1 px-1.5 right-4 text-body-xs font-bold top-4'>
@@ -89,4 +100,15 @@ const {
   >
     Записаться
   </Button>
+  <ProductLd
+    name={title}
+    description={subtitle}
+    id={new URL(`#${id}`, Astro.site).toString()}
+    offers={{
+      '@type': 'Offer',
+      price: ldPrice,
+      priceCurrency: 'RUB',
+      availability: 'https://schema.org/OnlineOnly',
+    }}
+  />
 </li>

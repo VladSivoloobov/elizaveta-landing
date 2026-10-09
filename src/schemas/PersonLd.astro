@@ -1,0 +1,18 @@
+---
+import JsonLd from './JsonLd.astro';
+import type { Person, WithContext } from 'schema-dts';
+---
+
+<JsonLd
+  schema={{
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': Astro.url.href,
+    name: 'Елизавета Ювати',
+    jobTitle: 'Репетитор по русскому / литературе',
+    image: new URL('/hero-image.png', Astro.url).toString(),
+    description:
+      'Профессиональный репетитор. Подготовка к ЕГЭ и ОГЭ. Опыт работы более 5 лет.',
+    sameAs: ['https://t.me/choosethelight'],
+  } as WithContext<Person>}
+/>

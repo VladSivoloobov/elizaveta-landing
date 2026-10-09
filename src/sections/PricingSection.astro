@@ -15,9 +15,11 @@ import PricingList from '../widgets/pricing-list/PricingList.astro';
     </p>
     <PricingList>
       <PricingItem
+        id='exams-study'
         title='ЕГЭ/ОГЭ подготовка'
         subtitle='Подготовлю к экзаменам'
         buttonText='Записаться'
+        ldPrice='2000'
         benefits={[
           '60 минут полного фокуса на ваших целях',
           'Индивидуальные домашние задания с подробной проверкой',
@@ -28,6 +30,8 @@ import PricingList from '../widgets/pricing-list/PricingList.astro';
         2 000 ₽
       </PricingItem>
       <PricingItem
+        ldPrice='1000'
+        id='easy-start'
         class='col-span-2 row-start-1'
         title='Лёгкий старт'
         subtitle='Познакомимся и оценим уровень'
@@ -47,6 +51,8 @@ import PricingList from '../widgets/pricing-list/PricingList.astro';
         1 000 ₽
       </PricingItem>
       <PricingItem
+        ldPrice='2500'
+        id='maximum'
         title='Олимпиадная подготовка'
         subtitle='Максимальный прогресс'
         buttonText='Записаться'
