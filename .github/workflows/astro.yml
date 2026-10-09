@@ -62,4 +62,4 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ${{ env.BUILD_PATH }}/dist/
-          server-dir: /ElizavetaUvati/public_html/
+          server-dir: /elizaveta_uvati/public_html/
