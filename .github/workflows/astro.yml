@@ -63,3 +63,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ${{ env.BUILD_PATH }}/dist/
           server-dir: /elizaveta_uvati/public_html/
+          dangerous-clean-slate: true
