@@ -22,11 +22,16 @@ const description =
     <SEO
       title={title}
       description={description}
+      canonical={Astro.url.href}
       openGraph={{
         basic: {
           title,
           type: 'website',
-          image: '/hero-image.png',
+          image: new URL('/hero-image.png', Astro.site).toString(),
+          url: Astro.url.href,
+        },
+        optional: {
+          description,
         },
       }}
     />
