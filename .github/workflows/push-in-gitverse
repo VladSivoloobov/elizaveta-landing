@@ -1,14 +1,21 @@
-name: Mirror to GitHub
-on: [push]
+name: Mirror to GitVerse
+
+on:
+  push:
+    branches:
+      - '*'
+  workflow_dispatch:
+
 jobs:
-  mirror:
+  gitverse-mirror:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Push to GitHub
+
+      - name: Push to GitVerse
         run: |
-          git remote add github https://${{ secrets.GH_MIRROR_ACTOR }}:${{ secrets.GH_MIRROR_TOKEN }}@://github.com{{ secrets.GH_MIRROR_ACTOR }}/${{ secrets.GH_MIRROR_REPO }}.git
-          git push --force --prune github "+refs/remotes/origin/*:refs/heads/*" --tags
+          git remote add gitverse https://ваш_логин_на_gitverse:${{ secrets.GITVERSE_TOKEN }}@gitverse.ru/ваш_логин_на_gitverse/имя_репозитория.git
+          git push --force --prune gitverse "+refs/remotes/origin/*:refs/heads/*" --tags
