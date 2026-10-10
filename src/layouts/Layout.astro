@@ -42,14 +42,3 @@ const description =
     <slot />
   </body>
 </html>
-
-<script>
-  import { Observer } from 'tailwindcss-intersect/observer';
-
-  const initObserver = () => {
-    Observer.start();
-  };
-
-  document.addEventListener('DOMContentLoaded', initObserver);
-  document.addEventListener('astro:page-load', initObserver);
-</script>

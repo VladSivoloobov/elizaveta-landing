@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 @plugin '@oglofus/tailwind-viewport-animations';
-@plugin "tailwindcss-intersect";
 
 @theme {
   --animate-slide: slide ease 0.3s;
